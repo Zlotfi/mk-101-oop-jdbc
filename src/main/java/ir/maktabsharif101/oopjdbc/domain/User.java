@@ -19,6 +19,13 @@ public class User {
     //transient
     private ZonedDateTime createDate;
     private UserType userType;
+
+    //OneToOne -> split (To) -> One  -  One
+    //ManyToOne -> split (To) -> Many  -  One
+    //OneToMany -> split (To) -> One  -  Many
+    //ManyToMany -> split (To) -> Many  -  Many
+
+    //ManyToMany
     private Role[] roles;
 
     public Long getId() {

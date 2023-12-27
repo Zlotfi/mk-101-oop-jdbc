@@ -5,6 +5,8 @@ package ir.maktabsharif101.oopjdbc.domain;
 public class Role {
     private Long id;
     private String name;
+
+    //ManyToMany
     private Permission[] permissions;
 
     public Long getId() {
