@@ -1,5 +1,7 @@
 package ir.maktabsharif101.oopjdbc.domain;
 
+import ir.maktabsharif101.oopjdbc.domain.enumeration.UserType;
+
 import java.time.ZonedDateTime;
 
 @SuppressWarnings("unused")
@@ -16,7 +18,7 @@ public class User {
 
     //transient
     private ZonedDateTime createDate;
-    private String userType;
+    private UserType userType;
     private Role[] roles;
 
     public Long getId() {
@@ -83,11 +85,11 @@ public class User {
         this.createDate = createDate;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 
