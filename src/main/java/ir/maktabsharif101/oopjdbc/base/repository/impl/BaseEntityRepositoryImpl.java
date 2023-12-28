@@ -17,7 +17,7 @@ public abstract class BaseEntityRepositoryImpl
 
     @Override
     public void deleteById(Long id) {
-
+        System.out.println("delete by id: " + id);
     }
 
     @Override
