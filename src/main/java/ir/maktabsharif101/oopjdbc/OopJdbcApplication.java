@@ -7,10 +7,17 @@ import ir.maktabsharif101.oopjdbc.util.ApplicationContext;
 
 public class OopJdbcApplication {
     public static void main(String[] args) {
-        RoleService roleService = ApplicationContext.getRoleService();
+//        RoleService roleService = ApplicationContext.getRoleService();
+//
+//        UserService userService = ApplicationContext.getUserService();
+//
+//        PermissionService permissionService = ApplicationContext.getPermissionService();
 
-        UserService userService = ApplicationContext.getUserService();
 
-        PermissionService permissionService = ApplicationContext.getPermissionService();
+//        RoleService roleService = ApplicationContext.getInstance().getRoleService();
+//        UserService userService = ApplicationContext.getInstance().getUserService();
+        ApplicationContext applicationContext = ApplicationContext.getInstance();
+        RoleService roleService = applicationContext.getRoleService();
+        RoleService roleService1 = applicationContext.getRoleService();
     }
 }
