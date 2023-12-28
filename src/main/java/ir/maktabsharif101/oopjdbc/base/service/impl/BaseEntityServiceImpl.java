@@ -8,7 +8,7 @@ public class BaseEntityServiceImpl implements BaseEntityService {
 
     protected final BaseEntityRepository baseRepository;
 
-    protected BaseEntityServiceImpl(BaseEntityRepository baseRepository) {
+    public BaseEntityServiceImpl(BaseEntityRepository baseRepository) {
         this.baseRepository = baseRepository;
     }
 
