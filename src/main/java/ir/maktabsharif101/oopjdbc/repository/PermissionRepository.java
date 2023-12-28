@@ -4,5 +4,7 @@ import ir.maktabsharif101.oopjdbc.base.repository.BaseEntityRepository;
 import ir.maktabsharif101.oopjdbc.domain.Permission;
 
 public interface PermissionRepository extends BaseEntityRepository {
-    Permission findAllByName(String name);
+
+    Permission findByName(String name);
+
 }
