@@ -12,7 +12,5 @@ public class OopJdbcApplication {
         UserService userService = ApplicationContext.getUserService();
 
         PermissionService permissionService = ApplicationContext.getPermissionService();
-        permissionService.
-
     }
 }
