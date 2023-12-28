@@ -8,5 +8,4 @@ public interface UserRepository extends BaseEntityRepository {
     User findByUserName(String userName);
     boolean existsByUserName(String userName);
     boolean existsByMobileNumber(String mobileNumber);
-    User[] findAllByFirstNameAndLastName(String firstName, String lastName);
 }
