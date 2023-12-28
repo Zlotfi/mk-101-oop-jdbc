@@ -4,7 +4,7 @@ import ir.maktabsharif101.oopjdbc.base.domain.Entity;
 import ir.maktabsharif101.oopjdbc.base.repository.impl.BaseEntityRepositoryImpl;
 import ir.maktabsharif101.oopjdbc.domain.Permission;
 import ir.maktabsharif101.oopjdbc.repository.PermissionRepository;
-
+@SuppressWarnings("unused")
 public class PermissionRepositoryImpl extends BaseEntityRepositoryImpl
         implements PermissionRepository {
 
