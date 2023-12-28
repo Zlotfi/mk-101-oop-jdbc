@@ -10,6 +10,7 @@ import java.time.ZonedDateTime;
 public class User extends Entity {
     private String firstName;
     private String lastName;
+    //unique
     private String userName;
     private String password;
     private String mobileNumber;
