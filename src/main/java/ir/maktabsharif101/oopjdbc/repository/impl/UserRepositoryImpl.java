@@ -43,6 +43,11 @@ public class UserRepositoryImpl extends BaseEntityRepositoryImpl implements User
     }
 
     @Override
+    protected BaseEntity[] getBaseEntityArrayForFindAll() throws SQLException {
+        return new User[(int) count()];
+    }
+
+    @Override
     public User findByUserName(String userName) {
         return null;
     }
