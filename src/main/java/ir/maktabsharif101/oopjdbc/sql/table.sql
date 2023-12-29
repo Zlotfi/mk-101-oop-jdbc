@@ -25,3 +25,8 @@ CREATE TABLE IF NOT EXISTS users_roles(
     FOREIGN KEY (user_id) REFERENCES user3(id),
     FOREIGN KEY (role_id) REFERENCES role(id)
 );
+
+CREATE TABLE IF NOT EXISTS permission(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
