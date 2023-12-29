@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public interface BaseEntityService {
 
     BaseEntity[] findAll();
-    BaseEntity findById(Long id);
+    BaseEntity findById(Long id) throws SQLException;
     void deleteById(Long id);
     long count() throws SQLException;
     BaseEntity sava(BaseEntity entity);

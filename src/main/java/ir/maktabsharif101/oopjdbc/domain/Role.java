@@ -27,4 +27,12 @@ public class Role extends BaseEntity {
     public void setPermissions(Permission[] permissions) {
         this.permissions = permissions;
     }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id='" + getId() + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

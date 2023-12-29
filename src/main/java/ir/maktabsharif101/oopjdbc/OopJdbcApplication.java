@@ -29,12 +29,28 @@ public class OopJdbcApplication {
 //        entities[1] = new Permission();
 //        entities[2] = new User();
 
+//        System.out.println(
+//                "count roles: " + ApplicationContext.getInstance().getRoleRepository().count()
+//        );
+//
+//        System.out.println(
+//                "count users: " + ApplicationContext.getInstance().getUserService().count()
+//        );
+
         System.out.println(
-                "count roles: " + ApplicationContext.getInstance().getRoleRepository().count()
+                "role with id 1: " + ApplicationContext.getInstance().getRoleRepository().findById(1L)
         );
 
         System.out.println(
-                "count users: " + ApplicationContext.getInstance().getUserService().count()
+                "user with id 1: " + ApplicationContext.getInstance().getUserRepository().findById(1L)
+        );
+
+        System.out.println(
+                "permission with id 1: " + ApplicationContext.getInstance().getPermissionRepository().findById(1L)
+        );
+
+        System.out.println(
+                "user with id 2: " + ApplicationContext.getInstance().getUserRepository().findById(2L)
         );
     }
 }
