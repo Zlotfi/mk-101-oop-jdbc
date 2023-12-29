@@ -1,17 +1,17 @@
 package ir.maktabsharif101.oopjdbc.base.repository.impl;
 
-import ir.maktabsharif101.oopjdbc.base.domain.Entity;
+import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
 import ir.maktabsharif101.oopjdbc.base.repository.BaseEntityRepository;
 
 public abstract class BaseEntityRepositoryImpl
         implements BaseEntityRepository {
     @Override
-    public Entity[] findAll() {
-        return new Entity[0];
+    public BaseEntity[] findAll() {
+        return new BaseEntity[0];
     }
 
     @Override
-    public Entity findById(Long id) {
+    public BaseEntity findById(Long id) {
         return null;
     }
 
@@ -26,12 +26,12 @@ public abstract class BaseEntityRepositoryImpl
     }
 
     @Override
-    public Entity sava(Entity entity) {
+    public BaseEntity sava(BaseEntity entity) {
         return null;
     }
 
     @Override
-    public Entity update(Entity entity) {
+    public BaseEntity update(BaseEntity entity) {
         return null;
     }
 
