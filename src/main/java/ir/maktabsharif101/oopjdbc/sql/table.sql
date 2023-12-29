@@ -38,3 +38,12 @@ CREATE TABLE IF NOT EXISTS roles_permissions(
     FOREIGN KEY (role_id) REFERENCES role(id),
     FOREIGN KEY (permission_id) REFERENCES permission(id)
 );
+
+CREATE TABLE IF NOT EXISTS customer_join(
+    id INTEGER,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES user3(id),
+    email VARCHAR(50) NOT NULL,
+    nationalCode VARCHAR(50) NOT NULL,
+    address VARCHAR(500) NOT NULL
+);
