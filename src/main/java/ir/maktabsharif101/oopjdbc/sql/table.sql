@@ -17,3 +17,11 @@ CREATE TABLE IF NOT EXISTS role (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS users_roles(
+    user_id INTEGER,
+    role_id INTEGER,
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES user3(id),
+    FOREIGN KEY (role_id) REFERENCES role(id)
+);
