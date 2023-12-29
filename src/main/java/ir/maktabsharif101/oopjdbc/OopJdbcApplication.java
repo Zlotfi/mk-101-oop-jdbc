@@ -1,9 +1,9 @@
 package ir.maktabsharif101.oopjdbc;
 
-import ir.maktabsharif101.oopjdbc.service.PermissionService;
-import ir.maktabsharif101.oopjdbc.service.RoleService;
-import ir.maktabsharif101.oopjdbc.service.UserService;
-import ir.maktabsharif101.oopjdbc.util.ApplicationContext;
+import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
+import ir.maktabsharif101.oopjdbc.domain.Permission;
+import ir.maktabsharif101.oopjdbc.domain.Role;
+import ir.maktabsharif101.oopjdbc.domain.User;
 
 public class OopJdbcApplication {
     public static void main(String[] args) {
@@ -16,8 +16,13 @@ public class OopJdbcApplication {
 
 //        RoleService roleService = ApplicationContext.getInstance().getRoleService();
 //        UserService userService = ApplicationContext.getInstance().getUserService();
-        ApplicationContext applicationContext = ApplicationContext.getInstance();
-        RoleService roleService = applicationContext.getRoleService();
-        RoleService roleService1 = applicationContext.getRoleService();
+//        ApplicationContext applicationContext = ApplicationContext.getInstance();
+//        RoleService roleService = applicationContext.getRoleService();
+//        RoleService roleService1 = applicationContext.getRoleService();
+
+//        BaseEntity[] entities = new BaseEntity[3];
+//        entities[0] = new Role();
+//        entities[1] = new Permission();
+//        entities[2] = new User();
     }
 }
