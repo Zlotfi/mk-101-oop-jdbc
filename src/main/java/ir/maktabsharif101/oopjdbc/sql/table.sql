@@ -12,3 +12,8 @@ CREATE TABLE IF NOT EXISTS user3 (
     createDate timestamp with time zone,
     userType UserType
 );
+
+CREATE TABLE IF NOT EXISTS role (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
