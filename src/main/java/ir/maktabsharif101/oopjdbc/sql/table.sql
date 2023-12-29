@@ -10,7 +10,12 @@ CREATE TABLE IF NOT EXISTS user3 (
     age INTEGER NOT NULL,
     createDateMillis BIGINT,
     createDate timestamp with time zone,
-    userType UserType
+    userType UserType,
+    dType VARCHAR(50),
+    email VARCHAR(50),
+    national_code VARCHAR(50),
+    address VARCHAR(500),
+    is_super_admin BOOLEAN
 );
 
 CREATE TABLE IF NOT EXISTS role (
