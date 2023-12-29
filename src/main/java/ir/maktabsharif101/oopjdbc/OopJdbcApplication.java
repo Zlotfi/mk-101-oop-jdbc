@@ -4,9 +4,13 @@ import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
 import ir.maktabsharif101.oopjdbc.domain.Permission;
 import ir.maktabsharif101.oopjdbc.domain.Role;
 import ir.maktabsharif101.oopjdbc.domain.User;
+import ir.maktabsharif101.oopjdbc.repository.RoleRepository;
+import ir.maktabsharif101.oopjdbc.util.ApplicationContext;
+
+import java.sql.SQLException;
 
 public class OopJdbcApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 //        RoleService roleService = ApplicationContext.getRoleService();
 //
 //        UserService userService = ApplicationContext.getUserService();
@@ -24,5 +28,13 @@ public class OopJdbcApplication {
 //        entities[0] = new Role();
 //        entities[1] = new Permission();
 //        entities[2] = new User();
+
+        System.out.println(
+                "count roles: " + ApplicationContext.getInstance().getRoleRepository().count()
+        );
+
+        System.out.println(
+                "count users: " + ApplicationContext.getInstance().getUserService().count()
+        );
     }
 }

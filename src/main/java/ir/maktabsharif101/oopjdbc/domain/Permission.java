@@ -5,6 +5,8 @@ import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
 @SuppressWarnings("unused")
 //@Entity
 public class Permission extends BaseEntity {
+
+    public static final String TABLE_NAME = "permission";
     private String name;
 
     public String getName() {

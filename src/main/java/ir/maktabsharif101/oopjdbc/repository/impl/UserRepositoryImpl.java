@@ -13,6 +13,11 @@ public class UserRepositoryImpl extends BaseEntityRepositoryImpl implements User
     }
 
     @Override
+    protected String getEntityTableName() {
+        return User.TABLE_NAME;
+    }
+
+    @Override
     public User findByUserName(String userName) {
         return null;
     }

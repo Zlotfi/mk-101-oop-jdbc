@@ -5,6 +5,8 @@ import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
 @SuppressWarnings("unused")
 //@Entity
 public class Role extends BaseEntity {
+
+    public static final String TABLE_NAME = "role";
     private String name;
 
     //ManyToMany
