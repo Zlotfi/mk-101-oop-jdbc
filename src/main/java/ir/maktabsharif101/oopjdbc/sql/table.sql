@@ -30,3 +30,11 @@ CREATE TABLE IF NOT EXISTS permission(
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS roles_permissions(
+    role_id INTEGER,
+    permission_id INTEGER,
+    PRIMARY KEY (role_id, permission_id),
+    FOREIGN KEY (role_id) REFERENCES role(id),
+    FOREIGN KEY (permission_id) REFERENCES permission(id)
+);
