@@ -96,22 +96,22 @@ public class OopJdbcApplication {
 //        );
 
         User user = new User();
-        user.setFirstName("hossein");
-        user.setLastName("abbasi");
-        user.setUserName("a66");
-        user.setPassword("123456");
-        user.setMobileNumber("09100000054");
-        user.setAge(46);
+        user.setFirstName("sara");
+        user.setLastName("sohrabi");
+        user.setUserName("sara20");
+        user.setPassword("1234");
+        user.setMobileNumber("09195644525");
+        user.setAge(24);
         System.out.println(
-                ApplicationContext.getInstance().getUserRepository().count()
+                ApplicationContext.getInstance().getUserService().count()
         );
         System.out.println(
-                ApplicationContext.getInstance().getUserRepository().sava(
+                ApplicationContext.getInstance().getUserService().sava(
                         user
                 )
         );
         System.out.println(
-                ApplicationContext.getInstance().getUserRepository().count()
+                ApplicationContext.getInstance().getUserService().count()
         );
     }
 }

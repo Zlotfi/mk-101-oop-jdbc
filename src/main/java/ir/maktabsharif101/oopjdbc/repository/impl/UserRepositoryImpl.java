@@ -2,10 +2,12 @@ package ir.maktabsharif101.oopjdbc.repository.impl;
 
 import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
 import ir.maktabsharif101.oopjdbc.base.repository.impl.BaseEntityRepositoryImpl;
+import ir.maktabsharif101.oopjdbc.domain.Permission;
 import ir.maktabsharif101.oopjdbc.domain.User;
 import ir.maktabsharif101.oopjdbc.repository.UserRepository;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -65,6 +67,54 @@ public class UserRepositoryImpl extends BaseEntityRepositoryImpl implements User
                 concat("'").concat(user.getMobileNumber()).concat("', ").
                 concat("'") + user.getAge() + "'"
                 ;
+    }
+
+    @Override
+    protected String[] getInsertColumnsForSecondApproach() {
+        return new String[]{
+                User.FIRST_NAME,
+                User.LAST_NAME,
+                User.USER_NAME,
+                User.PASSWORD,
+                User.MOBILE_NUMBER,
+                User.AGE
+        };
+    }
+
+    @Override
+    protected void fillPreparedStatementParamsForSave(PreparedStatement preparedStatement,
+                                                      BaseEntity entity) throws SQLException {
+        //        insert into user3(firstName, lastName, userName, password, mobileNumber, age) values(?,?,?,?,?,?)
+        User user = (User) entity;
+        preparedStatement.setString(
+                1,
+                user.getFirstName()
+        );
+
+        preparedStatement.setString(
+                2,
+                user.getLastName()
+        );
+
+        preparedStatement.setString(
+                3,
+                user.getUserName()
+        );
+
+        preparedStatement.setString(
+                4,
+                user.getPassword()
+        );
+
+        preparedStatement.setString(
+                5,
+                user.getMobileNumber()
+        );
+
+        preparedStatement.setInt(
+                6,
+                user.getAge()
+        );
     }
 
     @Override
