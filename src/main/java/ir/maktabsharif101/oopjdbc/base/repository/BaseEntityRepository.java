@@ -13,5 +13,5 @@ public interface BaseEntityRepository {
     long count() throws SQLException;
     BaseEntity sava(BaseEntity entity);
     BaseEntity update(BaseEntity entity);
-    boolean existsById(Long id);
+    boolean existsById(Long id) throws SQLException;
 }

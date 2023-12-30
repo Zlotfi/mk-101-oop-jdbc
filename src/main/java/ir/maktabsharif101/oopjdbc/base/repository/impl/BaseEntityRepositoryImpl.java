@@ -15,7 +15,7 @@ public abstract class BaseEntityRepositoryImpl
     protected final Connection connection;
     public static final String FIND_BY_ID_QUERY_TEMPLATE = "SELECT * FROM %s WHERE id = ?";
     public static final String FIND_ALL_QUERY_TEMPLATE = "SELECT * FROM %s";
-
+//    public static final String EXISTS_BY_ID_QUERY_TEMPLATE = "SELECT COUNT(id) FROM %s WHERE id = ?";
     protected BaseEntityRepositoryImpl(Connection connection) {
         this.connection = connection;
     }
@@ -81,8 +81,28 @@ public abstract class BaseEntityRepositoryImpl
     }
 
     @Override
-    public boolean existsById(Long id) {
-        return false;
+    public boolean existsById(Long id) throws SQLException {
+//        return existsByIdWithCount(id);
+        return existsByIdWithIdSelection(id);
+    }
+
+    protected boolean existsByIdWithCount(Long id) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(
+                "SELECT COUNT(*) FROM " + getEntityTableName() + " WHERE id = ?"
+        );
+        preparedStatement.setLong(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        return resultSet.getLong(1) > 0;
+    }
+
+    protected boolean existsByIdWithIdSelection(Long id) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(
+                "SELECT id FROM " + getEntityTableName() + " WHERE id = ?"
+        );
+        preparedStatement.setLong(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return resultSet.next();
     }
 
     protected abstract String getEntityTableName();

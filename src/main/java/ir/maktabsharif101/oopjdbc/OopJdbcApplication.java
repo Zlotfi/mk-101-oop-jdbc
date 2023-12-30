@@ -54,16 +54,27 @@ public class OopJdbcApplication {
 //                "user with id 2: " + ApplicationContext.getInstance().getUserRepository().findById(2L)
 //        );
 
+
+//        System.out.println(
+//                "permissions: " + Arrays.toString(ApplicationContext.getInstance().getPermissionRepository().findAll())
+//        );
+//
+//        System.out.println(
+//                "roles: " + Arrays.toString(ApplicationContext.getInstance().getRoleRepository().findAll())
+//        );
+//
+//        System.out.println(
+//                "users: " + Arrays.toString(ApplicationContext.getInstance().getUserRepository().findAll())
+//        );
+
         System.out.println(
-                "permissions: " + Arrays.toString(ApplicationContext.getInstance().getPermissionRepository().findAll())
+                "exists by id user with id = 1 : " +
+                        ApplicationContext.getInstance().getUserRepository().existsById(1L)
         );
 
         System.out.println(
-                "roles: " + Arrays.toString(ApplicationContext.getInstance().getRoleRepository().findAll())
-        );
-
-        System.out.println(
-                "users: " + Arrays.toString(ApplicationContext.getInstance().getUserRepository().findAll())
+                "exists by id user with id = 8 : " +
+                        ApplicationContext.getInstance().getUserRepository().existsById(8L)
         );
     }
 }
