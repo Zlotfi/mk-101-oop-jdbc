@@ -70,6 +70,20 @@ public class PermissionRepositoryImpl extends BaseEntityRepositoryImpl
     }
 
     @Override
+    protected void fillPreparedStatementParamsForUpdate(PreparedStatement preparedStatement,
+                                                      BaseEntity entity) throws SQLException {
+        preparedStatement.setString(
+                1,
+                ((Permission) entity).getName()
+        );
+
+        preparedStatement.setLong(
+                2,
+                entity.getId()
+        );
+    }
+
+    @Override
     public Permission findByName(String name) {
         return null;
     }

@@ -95,23 +95,43 @@ public class OopJdbcApplication {
 //                ApplicationContext.getInstance().getPermissionRepository().count()
 //        );
 
-        User user = new User();
-        user.setFirstName("sara");
-        user.setLastName("sohrabi");
-        user.setUserName("sara20");
-        user.setPassword("1234");
-        user.setMobileNumber("09195644525");
-        user.setAge(24);
+
+//        User user = new User();
+//        user.setFirstName("sara");
+//        user.setLastName("sohrabi");
+//        user.setUserName("sara20");
+//        user.setPassword("1234");
+//        user.setMobileNumber("09195644525");
+//        user.setAge(24);
+//        System.out.println(
+//                ApplicationContext.getInstance().getUserService().count()
+//        );
+//        System.out.println(
+//                ApplicationContext.getInstance().getUserService().sava(
+//                        user
+//                )
+//        );
+//        System.out.println(
+//                ApplicationContext.getInstance().getUserService().count()
+//        );
+
+
+        User beforeUpdate = (User) ApplicationContext.getInstance().getUserService().findById(3L);
         System.out.println(
-                ApplicationContext.getInstance().getUserService().count()
+                "before update: " + beforeUpdate
         );
-        System.out.println(
-                ApplicationContext.getInstance().getUserService().sava(
-                        user
-                )
+        beforeUpdate.setFirstName(
+                beforeUpdate.getFirstName() + beforeUpdate.getFirstName().length()
         );
+        beforeUpdate.setPassword(
+                "9876543210"
+        );
+        ApplicationContext.getInstance().getUserService().update(beforeUpdate);
+
+        User afterUpdate = (User) ApplicationContext.getInstance().getUserService().findById(3L);
+
         System.out.println(
-                ApplicationContext.getInstance().getUserService().count()
+                "after update: " + afterUpdate
         );
     }
 }

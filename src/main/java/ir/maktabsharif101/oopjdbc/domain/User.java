@@ -26,7 +26,7 @@ public class User extends BaseEntity {
     private String userName;
     private String password;
     private String mobileNumber;
-    private Integer age;
+    private int age;
     private Long createDateMillis;
 
     //transient
@@ -73,11 +73,11 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -127,6 +127,8 @@ public class User extends BaseEntity {
                 "id='" + getId() + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
