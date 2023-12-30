@@ -7,6 +7,9 @@ import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
 public class Role extends BaseEntity {
 
     public static final String TABLE_NAME = "role";
+    public static final String NAME = "name";
+
+    // @Column(NAME)
     private String name;
 
     //ManyToMany

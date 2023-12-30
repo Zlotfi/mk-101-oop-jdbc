@@ -6,6 +6,9 @@ import ir.maktabsharif101.oopjdbc.domain.User;
 import ir.maktabsharif101.oopjdbc.repository.UserRepository;
 import ir.maktabsharif101.oopjdbc.service.RoleService;
 import ir.maktabsharif101.oopjdbc.service.UserService;
+
+import java.sql.SQLException;
+
 @SuppressWarnings("unused")
 public class UserServiceImpl extends BaseEntityServiceImpl implements UserService {
 
@@ -16,7 +19,7 @@ public class UserServiceImpl extends BaseEntityServiceImpl implements UserServic
     }
 
     @Override
-    public BaseEntity sava(BaseEntity entity) {
+    public BaseEntity sava(BaseEntity entity) throws SQLException {
         // TODO use role service
         return super.sava(entity);
     }

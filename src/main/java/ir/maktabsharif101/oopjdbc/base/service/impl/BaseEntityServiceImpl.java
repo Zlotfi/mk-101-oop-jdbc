@@ -35,7 +35,7 @@ public class BaseEntityServiceImpl implements BaseEntityService {
     }
 
     @Override
-    public BaseEntity sava(BaseEntity entity) {
+    public BaseEntity sava(BaseEntity entity) throws SQLException {
         return baseRepository.sava(entity);
     }
 

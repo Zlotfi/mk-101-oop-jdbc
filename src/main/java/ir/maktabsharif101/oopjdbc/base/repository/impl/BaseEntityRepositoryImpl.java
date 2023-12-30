@@ -3,10 +3,7 @@ package ir.maktabsharif101.oopjdbc.base.repository.impl;
 import ir.maktabsharif101.oopjdbc.base.domain.BaseEntity;
 import ir.maktabsharif101.oopjdbc.base.repository.BaseEntityRepository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 @SuppressWarnings("unused")
 public abstract class BaseEntityRepositoryImpl
@@ -16,6 +13,7 @@ public abstract class BaseEntityRepositoryImpl
     public static final String FIND_BY_ID_QUERY_TEMPLATE = "SELECT * FROM %s WHERE id = ?";
     public static final String FIND_ALL_QUERY_TEMPLATE = "SELECT * FROM %s";
 //    public static final String EXISTS_BY_ID_QUERY_TEMPLATE = "SELECT COUNT(id) FROM %s WHERE id = ?";
+    public static final String INSERT_QUERY_TEMPLATE = "INSERT INTO %s(%s) VALUES(%s)";
     protected BaseEntityRepositoryImpl(Connection connection) {
         this.connection = connection;
     }
@@ -71,8 +69,9 @@ public abstract class BaseEntityRepositoryImpl
     }
 
     @Override
-    public BaseEntity sava(BaseEntity entity) {
-        return null;
+    public BaseEntity sava(BaseEntity entity) throws SQLException {
+        return saveFirstApproach(entity);
+//        return saveSecondApproach(entity);
     }
 
     @Override
@@ -105,9 +104,36 @@ public abstract class BaseEntityRepositoryImpl
         return resultSet.next();
     }
 
+    protected BaseEntity saveFirstApproach(BaseEntity entity) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(
+                String.format(
+                        INSERT_QUERY_TEMPLATE,
+                        getEntityTableName(),
+                        getInsertColumnsForFirstApproach(),
+                        getInsertValuesForFirstApproach(entity)
+                ),
+                Statement.RETURN_GENERATED_KEYS
+        );
+        preparedStatement.executeUpdate();
+        ResultSet generatedKeysResultSet = preparedStatement.getGeneratedKeys();
+        generatedKeysResultSet.next();
+        entity.setId(
+                generatedKeysResultSet.getLong(1)
+        );
+        return entity;
+    }
+
+    private BaseEntity saveSecondApproach(BaseEntity entity) {
+        return null;
+    }
+
     protected abstract String getEntityTableName();
 
     protected abstract BaseEntity mapResultSetToEntity(ResultSet resultSet) throws SQLException;
 
     protected abstract BaseEntity[] getBaseEntityArrayForFindAll() throws SQLException;
+
+    protected abstract String getInsertColumnsForFirstApproach();
+
+    protected abstract  String getInsertValuesForFirstApproach(BaseEntity entity);
 }

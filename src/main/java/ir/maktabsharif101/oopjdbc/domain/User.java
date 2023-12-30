@@ -13,6 +13,13 @@ import java.time.ZonedDateTime;
 public class User extends BaseEntity {
 
     public static final String TABLE_NAME = "user3";
+    public static final String FIRST_NAME = "firstName";
+    public static final String LAST_NAME = "lastName";
+    public static final String USER_NAME = "userName";
+    public static final String PASSWORD = "password";
+    public static final String MOBILE_NUMBER = "mobileNumber";
+    public static final String AGE = "age";
+
     private String firstName;
     private String lastName;
     //unique

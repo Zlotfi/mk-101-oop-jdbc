@@ -67,14 +67,51 @@ public class OopJdbcApplication {
 //                "users: " + Arrays.toString(ApplicationContext.getInstance().getUserRepository().findAll())
 //        );
 
-        System.out.println(
-                "exists by id user with id = 1 : " +
-                        ApplicationContext.getInstance().getUserRepository().existsById(1L)
-        );
 
+//        System.out.println(
+//                "exists by id user with id = 1 : " +
+//                        ApplicationContext.getInstance().getUserRepository().existsById(1L)
+//        );
+//
+//        System.out.println(
+//                "exists by id user with id = 8 : " +
+//                        ApplicationContext.getInstance().getUserRepository().existsById(8L)
+//        );
+
+
+//        System.out.println(
+//                ApplicationContext.getInstance().getPermissionRepository().count()
+//        );
+//
+//        System.out.println(
+//                ApplicationContext.getInstance().getPermissionRepository().sava(
+//                        new Permission(
+//                                "user_read"
+//                        )
+//                )
+//        );
+//
+//        System.out.println(
+//                ApplicationContext.getInstance().getPermissionRepository().count()
+//        );
+
+        User user = new User();
+        user.setFirstName("hossein");
+        user.setLastName("abbasi");
+        user.setUserName("a66");
+        user.setPassword("123456");
+        user.setMobileNumber("09100000054");
+        user.setAge(46);
         System.out.println(
-                "exists by id user with id = 8 : " +
-                        ApplicationContext.getInstance().getUserRepository().existsById(8L)
+                ApplicationContext.getInstance().getUserRepository().count()
+        );
+        System.out.println(
+                ApplicationContext.getInstance().getUserRepository().sava(
+                        user
+                )
+        );
+        System.out.println(
+                ApplicationContext.getInstance().getUserRepository().count()
         );
     }
 }

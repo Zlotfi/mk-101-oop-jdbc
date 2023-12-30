@@ -48,6 +48,26 @@ public class UserRepositoryImpl extends BaseEntityRepositoryImpl implements User
     }
 
     @Override
+    protected String getInsertColumnsForFirstApproach() {
+        return User.FIRST_NAME.concat(", ").concat(User.LAST_NAME).concat(", ").concat(User.USER_NAME)
+                .concat(", ").concat(User.PASSWORD).concat(", ").concat(User.MOBILE_NUMBER).concat(", ").concat(User.AGE);
+//        return User.FIRST_NAME + ", " + User.LAST_NAME + ", " + User.USER_NAME + ", " + User.PASSWORD + ", " +
+//                User.MOBILE_NUMBER + ", " + User.AGE;
+    }
+
+    @Override
+    protected String getInsertValuesForFirstApproach(BaseEntity entity) {
+        User user = (User) entity;
+        return "'".concat(user.getFirstName()).concat("', ").
+                concat("'").concat(user.getLastName()).concat("', ").
+                concat("'").concat(user.getUserName()).concat("', ").
+                concat("'").concat(user.getPassword()).concat("', ").
+                concat("'").concat(user.getMobileNumber()).concat("', ").
+                concat("'") + user.getAge() + "'"
+                ;
+    }
+
+    @Override
     public User findByUserName(String userName) {
         return null;
     }
