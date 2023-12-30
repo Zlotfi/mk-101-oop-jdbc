@@ -116,22 +116,48 @@ public class OopJdbcApplication {
 //        );
 
 
-        User beforeUpdate = (User) ApplicationContext.getInstance().getUserService().findById(3L);
-        System.out.println(
-                "before update: " + beforeUpdate
-        );
-        beforeUpdate.setFirstName(
-                beforeUpdate.getFirstName() + beforeUpdate.getFirstName().length()
-        );
-        beforeUpdate.setPassword(
-                "9876543210"
-        );
-        ApplicationContext.getInstance().getUserService().update(beforeUpdate);
+//        User beforeUpdate = (User) ApplicationContext.getInstance().getUserService().findById(3L);
+//        System.out.println(
+//                "before update: " + beforeUpdate
+//        );
+//        beforeUpdate.setFirstName(
+//                beforeUpdate.getFirstName() + beforeUpdate.getFirstName().length()
+//        );
+//        beforeUpdate.setPassword(
+//                "9876543210"
+//        );
+//        ApplicationContext.getInstance().getUserService().update(beforeUpdate);
+//
+//        User afterUpdate = (User) ApplicationContext.getInstance().getUserService().findById(3L);
+//
+//        System.out.println(
+//                "after update: " + afterUpdate
+//        );
 
-        User afterUpdate = (User) ApplicationContext.getInstance().getUserService().findById(3L);
 
         System.out.println(
-                "after update: " + afterUpdate
+                "count users before delete user with id = 10: " +
+                        ApplicationContext.getInstance().getUserService().count()
+        );
+
+        ApplicationContext.getInstance().getUserService().deleteById(10L);
+
+        System.out.println(
+                "count users after delete user with id = 10: " +
+                        ApplicationContext.getInstance().getUserService().count()
+        );
+
+
+        System.out.println(
+                "count users before delete user with id = 2: " +
+                        ApplicationContext.getInstance().getUserService().count()
+        );
+
+        ApplicationContext.getInstance().getUserService().deleteById(2L);
+
+        System.out.println(
+                "count users after delete user with id = 2: " +
+                        ApplicationContext.getInstance().getUserService().count()
         );
     }
 }
