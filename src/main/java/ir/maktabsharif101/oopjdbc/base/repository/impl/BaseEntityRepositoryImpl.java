@@ -123,7 +123,7 @@ public abstract class BaseEntityRepositoryImpl
         return entity;
     }
 
-    private BaseEntity saveSecondApproach(BaseEntity entity) {
+    protected BaseEntity saveSecondApproach(BaseEntity entity) {
         return null;
     }
 
