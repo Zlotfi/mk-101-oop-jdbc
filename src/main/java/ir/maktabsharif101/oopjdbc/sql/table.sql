@@ -52,3 +52,8 @@ CREATE TABLE IF NOT EXISTS customer_join(
     nationalCode VARCHAR(50) NOT NULL,
     address VARCHAR(500) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS city (
+    id SERIAL PRIMARY KEY ,
+    name VARCHAR(50) NOT NULL
+);
